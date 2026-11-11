@@ -192,3 +192,5 @@ img{max-width:100%}
 .credit a{color:inherit}
 @media (prefers-reduced-motion:reduce){.card__img{transition:none}}
 @media (max-width:560px){.credit{left:1.25rem;right:auto}.post__in{padding-bottom:3.5rem}}
+.regions{display:grid;gap:1.25rem;grid-template-columns:1fr}
+@media (min-width:860px){.regions{grid-template-columns:1fr 1fr}}
