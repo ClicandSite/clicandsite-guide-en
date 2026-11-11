@@ -214,3 +214,5 @@ img{max-width:100%}
   .hero-page .post .postmark{top:136px}
   .hero-page .post__in{padding-top:250px}
 }
+@media (min-width:1100px){.regions{grid-template-columns:repeat(3,1fr)}.regions .region-card__face{min-height:300px}}
+@media (min-width:1100px){.regions .region-card__name{font-size:3rem}}
