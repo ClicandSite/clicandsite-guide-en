@@ -216,3 +216,23 @@ img{max-width:100%}
 }
 @media (min-width:1100px){.regions{grid-template-columns:repeat(3,1fr)}.regions .region-card__face{min-height:300px}}
 @media (min-width:1100px){.regions .region-card__name{font-size:3rem}}
+/* Bloc de réservation partenaires */
+.prose .book{background:var(--encre);color:#fff;border-radius:8px;padding:1.6rem 1.4rem 1.2rem;margin:2.4rem 0 2rem;scroll-margin-top:1rem}
+.prose .book__t{color:#fff;margin:0 0 .4rem}
+.book__lead{color:#dbe7f0;margin:0 0 1.1rem!important;font-size:1rem}
+.book .acts{margin:0 0 1rem;gap:.9rem}
+.book .act{border:0;border-radius:6px;padding:1.2rem 1.25rem;box-shadow:0 6px 18px rgba(0,0,0,.18);color:var(--texte)}
+.book .act__t{color:var(--encre)}
+.act__d{margin:.25rem 0 .9rem!important}
+.act__btns{display:flex;flex-wrap:wrap;gap:.7rem;margin:0!important}
+.bk{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:50px;padding:.75rem 1.3rem;border-radius:6px;font-weight:700;font-size:1rem;text-decoration:none;line-height:1.2;transition:transform .15s ease,box-shadow .15s ease,background-color .15s ease}
+.bk__i{width:20px;height:20px;flex:none}
+.bk--gyg{background:var(--ocre);color:var(--encre);box-shadow:0 3px 0 #b07c25}
+.bk--gyg:hover{background:#ecb455;transform:translateY(-1px);box-shadow:0 4px 0 #b07c25}
+.bk--via{background:var(--pin);color:#fff;box-shadow:0 3px 0 #1d3d2e}
+.bk--via:hover{background:#376b52;transform:translateY(-1px);box-shadow:0 4px 0 #1d3d2e}
+.bk:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.prose .book .aff-note{color:#b9cad8;margin:0}
+.post__cta{margin:1.4rem 0 0}
+@media (max-width:560px){.act__btns .bk{width:100%}.prose .book{padding:1.3rem 1rem 1rem;margin-left:-.25rem;margin-right:-.25rem}}
+@media (prefers-reduced-motion:reduce){.bk{transition:none}.bk:hover{transform:none}}
