@@ -1,0 +1,194 @@
+/* Clic&Site — guide des sites de France. Couleurs de la Riviera : mer, ocre des façades, pins parasols. */
+@font-face{font-family:"Young Serif";src:url(fonts/young-serif-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Public Sans";src:url(fonts/public-sans-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Public Sans";src:url(fonts/public-sans-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Public Sans";src:url(fonts/public-sans-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}
+
+:root{
+  --encre:#13324b;   /* bleu nuit des volets */
+  --azur:#2a78ad;    /* la mer à midi */
+  --ocre:#e0a243;    /* façades de Villefranche */
+  --pin:#2e5b45;     /* pins parasols */
+  --ciel:#eef4f8;    /* fond, bleu très pâle */
+  --texte:#1c2b37;
+  --doux:#56697a;
+  --trait:#cfdce6;
+  --blanc:#fff;
+  --serif:"Young Serif",Georgia,serif;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --w:1400px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ciel);color:var(--texte);font:400 1.0625rem/1.6 var(--sans)}
+a{color:var(--azur)}
+a:focus-visible,summary:focus-visible,.btn:focus-visible{outline:3px solid var(--ocre);outline-offset:2px}
+img{max-width:100%}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 clamp(1.25rem,3vw,2.5rem)}
+.skip{position:absolute;left:-999px;top:0;background:var(--encre);color:#fff;padding:.5rem 1rem;z-index:9}
+.skip:focus{left:0}
+
+/* En-tête */
+.top{background:var(--encre);color:#fff}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:64px;flex-wrap:wrap}
+.brand{font:400 1.6rem/1 var(--serif);color:#fff;text-decoration:none;letter-spacing:-.01em}
+.brand__amp{color:var(--ocre);margin:0 .04em}
+.top__nav{display:flex;gap:1.25rem;font-weight:600;font-size:.95rem}
+.top__nav a{color:#dbe7f0;text-decoration:none}
+.top__nav a:hover{color:#fff;text-decoration:underline}
+
+.crumbs ol{list-style:none;margin:0;padding:1rem 0 0;display:flex;flex-wrap:wrap;gap:.25rem .5rem;font-size:.875rem;color:var(--doux)}
+.crumbs li+li::before{content:"/";margin-right:.5rem;color:var(--trait)}
+.crumbs a{color:var(--doux)}
+
+/* Titres */
+.hero{padding:3.5rem 1.25rem 2rem}
+.hero__title{font:400 clamp(2.4rem,6vw,4.4rem)/1.04 var(--serif);color:var(--encre);margin:0;max-width:16ch;letter-spacing:-.015em}
+.hero__title--sm{font-size:clamp(2rem,4.5vw,3rem)}
+.hero__lead{font-size:1.2rem;color:var(--doux);max-width:56ch;margin:1.25rem 0 0}
+.sec-title{font:400 1.7rem/1.2 var(--serif);color:var(--encre);margin:3rem 0 1.25rem}
+
+/* Timbre + cachet : le numéro du département sur chaque carte postale */
+.stamp{position:absolute;top:1.25rem;right:1.25rem;width:84px;height:100px;background:var(--blanc);padding:7px;
+  -webkit-mask:radial-gradient(circle 4px at 50% 50%,#0000 96%,#000) 0 0/10px 10px round,linear-gradient(#000 0 0) content-box;
+          mask:radial-gradient(circle 4px at 50% 50%,#0000 96%,#000) 0 0/10px 10px round,linear-gradient(#000 0 0) content-box}
+.stamp__num{display:flex;align-items:center;justify-content:center;height:100%;border:2px solid var(--ocre);
+  font:400 1.7rem/1 var(--serif);color:var(--encre);text-align:center;padding:0 .2rem}
+.postmark{position:absolute;top:2.6rem;right:6.6rem;width:96px;height:96px;border:2px solid rgba(255,255,255,.55);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;transform:rotate(-14deg);pointer-events:none}
+.postmark span{font-size:.7rem;font-weight:700;letter-spacing:.06em;color:rgba(255,255,255,.8);text-align:center;line-height:1.2;max-width:76px}
+.stamp--sm{top:.9rem;right:.9rem;width:54px;height:64px;padding:5px;-webkit-mask-size:8px 8px,auto;mask-size:8px 8px,auto}
+.stamp--sm .stamp__num{font-size:1.05rem;border-width:1.5px}
+.postmark--sm{display:none}
+.postmark--sm span{font-size:.55rem;max-width:50px}
+
+/* Carte de région */
+.region-card{display:block;text-decoration:none;color:inherit;background:var(--blanc);border:1px solid var(--trait);border-radius:6px;overflow:hidden}
+.region-card__face{position:relative;background:var(--azur);color:#fff;min-height:240px;padding:1.75rem;display:flex;flex-direction:column;justify-content:flex-end;
+  background-image:linear-gradient(180deg,transparent 55%,rgba(19,50,75,.35)),repeating-linear-gradient(170deg,rgba(255,255,255,.07) 0 2px,transparent 2px 22px)}
+.region-card__name{font:400 clamp(2.4rem,7vw,4rem)/1 var(--serif)}
+.region-card__count{font-weight:600;margin-top:.4rem;color:#dbe7f0}
+.region-card__txt{margin:0;padding:1.25rem 1.75rem 1.5rem;max-width:70ch;color:var(--texte)}
+.region-card:hover .region-card__name{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
+.next{color:var(--doux);margin:1rem 0 0}
+
+/* Cartes postales des destinations */
+.cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.5rem}
+.card a{display:block;height:100%;text-decoration:none;color:inherit;background:var(--blanc);border:1px solid var(--trait);border-radius:4px;overflow:hidden}
+.card__face{position:relative;height:220px;padding:1rem 1.2rem;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.card__name{position:relative;font:400 1.85rem/1.05 var(--serif);max-width:10ch;text-shadow:0 1px 12px rgba(0,0,0,.35)}
+.card__txt{margin:0;padding:1rem 1.1rem 1.25rem;font-size:.95rem;color:var(--doux)}
+.card a:hover .card__name{text-decoration:underline;text-underline-offset:4px}
+.card--azur .card__face,.post--azur{background-color:var(--azur)}
+.card--pin .card__face,.post--pin{background-color:var(--pin)}
+.card--ocre .card__face,.post--ocre{background-color:#93600f}
+.card--encre .card__face,.post--encre{background-color:var(--encre)}
+.card__face{background-image:repeating-linear-gradient(170deg,rgba(255,255,255,.07) 0 2px,transparent 2px 18px)}
+
+/* En-tête de destination : la carte postale en grand */
+.post{color:#fff}
+
+.post__title{font:400 clamp(2.4rem,6.5vw,4.6rem)/1.02 var(--serif);margin:0;max-width:13ch;letter-spacing:-.015em}
+.post__lead{font-size:1.2rem;max-width:52ch;margin:1.1rem 0 0;color:rgba(255,255,255,.92)}
+.post .stamp{top:1.75rem;right:1.25rem}
+.post .postmark{top:3.1rem;right:6.6rem}
+
+/* Mise en page article + fiche */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:4rem;align-items:start;padding-top:3rem}
+.prose{max-width:72ch}
+.wrap.prose{max-width:var(--w)}
+.wrap.prose > *{max-width:72ch}
+.prose h2{font:400 1.75rem/1.2 var(--serif);color:var(--encre);margin:2.5rem 0 .75rem}
+.prose h3{font-size:1.1rem;font-weight:700;color:var(--encre);margin:1.6rem 0 .25rem}
+.prose p{margin:.5rem 0 1rem}
+.prose ul{padding-left:1.2rem}
+.prose li{margin:.4rem 0}
+.prose > p:first-child{font-size:1.15rem}
+
+.fiche{position:sticky;top:1.5rem;background:var(--blanc);border:1px solid var(--trait);border-top:4px solid var(--ocre);border-radius:4px;padding:1.25rem 1.4rem}
+.fiche__t{font:400 1.3rem/1.2 var(--serif);color:var(--encre);margin:0 0 .75rem}
+.fiche dl{margin:0}
+.fiche dl div{padding:.6rem 0;border-top:1px solid var(--trait)}
+.fiche dt{font-size:.85rem;color:var(--doux)}
+.fiche dd{margin:.1rem 0 0;font-weight:600}
+
+/* Activités à réserver */
+.acts{list-style:none;padding:0!important;margin:1rem 0;display:grid;gap:1rem}
+.act{background:var(--blanc);border:1px solid var(--trait);border-radius:4px;padding:1.1rem 1.25rem;margin:0!important}
+.prose .act__t{margin:0 0 .2rem}
+.act p{margin:.2rem 0 .6rem}
+.act__btns{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:0!important}
+.btn{display:inline-block;background:var(--encre);color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;padding:.65rem 1rem;border-radius:4px;border:2px solid var(--encre)}
+.btn:hover{background:var(--azur);border-color:var(--azur)}
+.btn--ghost{background:transparent;color:var(--encre)}
+.btn--ghost:hover{color:#fff}
+.btn--light{background:var(--ocre);border-color:var(--ocre);color:var(--encre)}
+.btn--light:hover{background:#fff;border-color:#fff;color:var(--encre)}
+.aff-note{font-size:.85rem;color:var(--doux)}
+
+/* FAQ */
+.faq details{border-top:1px solid var(--trait);padding:.85rem 0}
+.faq details:last-child{border-bottom:1px solid var(--trait)}
+.faq summary{cursor:pointer;font-weight:600;color:var(--encre)}
+.faq details p{margin:.6rem 0 0}
+
+/* Encart chauffeur */
+.ride{background:var(--encre);color:#fff;border-radius:6px;padding:1.75rem;margin:3rem 0 0;max-width:820px}
+.ride__t{font:400 1.6rem/1.2 var(--serif);margin:0 0 .5rem}
+.ride p{color:#dbe7f0;max-width:62ch}
+
+/* Pied de page */
+.foot{margin-top:4.5rem;background:var(--encre);color:#c6d6e2;font-size:.92rem}
+.foot__in{padding-top:2.25rem;padding-bottom:2.5rem}
+.foot__brand{font:400 1.4rem/1 var(--serif);color:#fff;margin:0 0 .5rem}
+.foot__aff{max-width:70ch}
+.foot a{color:#fff}
+.foot__sep{display:inline-block;width:1px;height:.9em;background:#4b6378;margin:0 .8rem;vertical-align:-.1em}
+
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr;gap:1.5rem}
+  .fiche{position:static;order:-1}
+}
+@media (max-width:560px){
+  body{font-size:1rem}
+  .top__nav{gap:.9rem;font-size:.9rem}
+  .hero{padding-top:2.25rem}
+  .post__in{padding-top:8rem}
+  .post .postmark{top:2.2rem}
+  .postmark{right:5.8rem}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+/* Liens secondaires et itinéraire */
+.more{margin:1.25rem 0 0;font-weight:600}
+.foot__sep--dark{background:var(--trait)}
+.iti-link{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1rem;text-decoration:none;background:var(--blanc);border:1px solid var(--trait);border-left:4px solid var(--ocre);border-radius:4px;padding:1.1rem 1.4rem;margin-top:1rem}
+.iti-link__t{font:400 1.4rem/1.2 var(--serif);color:var(--encre)}
+.iti-link__d{color:var(--doux)}
+.iti-link:hover .iti-link__t{text-decoration:underline;text-underline-offset:4px}
+.days{list-style:none;padding:0!important;margin:0;counter-reset:jour}
+.day{border-left:3px solid var(--azur);padding:0 0 .5rem 1.25rem;margin:0 0 1.5rem!important}
+.day h2{margin-top:0!important}
+
+.mcs{display:inline-flex;align-items:center;gap:.35rem;vertical-align:middle}
+.mcs img{display:block;border-radius:4px}
+
+/* Photos (11/11/2026) */
+.card__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.card__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,22,36,0) 35%,rgba(8,22,36,.72) 100%)}
+.card a:hover .card__img,.region-card:hover .card__img{transform:scale(1.04)}
+.card .stamp,.region-card .stamp{z-index:1}
+.region-card__face{overflow:hidden;min-height:340px}
+.region-card__name,.region-card__count{position:relative;text-shadow:0 1px 14px rgba(0,0,0,.35)}
+.post{position:relative;margin-top:0;min-height:clamp(440px,64vh,680px);display:flex;align-items:flex-end;overflow:hidden;background-color:var(--encre)}
+.crumbs + main .post,.crumbs ~ main .post{margin-top:1rem}
+.post__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.post__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,22,36,.25) 0%,rgba(8,22,36,0) 30%,rgba(8,22,36,.78) 100%)}
+.post__in{position:relative;width:100%;padding-top:6rem;padding-bottom:3.25rem;min-height:0}
+.post__title,.post__lead{text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.post__title--home{max-width:15ch;font-size:clamp(2.6rem,6.5vw,5rem)}
+.post--home{min-height:clamp(480px,72vh,760px)}
+.credit{position:absolute;right:clamp(1rem,2vw,1.5rem);bottom:.6rem;margin:0;font-size:.72rem;color:rgba(255,255,255,.8)}
+.credit a{color:inherit}
+@media (prefers-reduced-motion:reduce){.card__img{transition:none}}
+@media (max-width:560px){.credit{left:1.25rem;right:auto}.post__in{padding-bottom:3.5rem}}
