@@ -239,3 +239,12 @@ img{max-width:100%}
 .book .act--eps{background:#fbf6ea;border-left:4px solid var(--ocre)}
 .bk--eps{background:#15130f;color:#e8c977;box-shadow:0 3px 0 #000}
 .bk--eps:hover{background:#2a251c;transform:translateY(-1px);box-shadow:0 4px 0 #000}
+/* Pages idées */
+.prose--wide{max-width:860px}
+.sec-lead{color:var(--doux);margin:-.4rem 0 1.1rem;max-width:70ch}
+.agenda{list-style:none;padding:0!important;margin:1rem 0 2rem;border-left:3px solid var(--ocre)}
+.ag{display:grid;grid-template-columns:8.5rem 1fr;gap:1rem;padding:.75rem 0 .75rem 1rem;margin:0!important;border-bottom:1px solid var(--trait)}
+.ag__d{font-weight:700;color:var(--encre);font-variant-numeric:tabular-nums}
+.ag__b p{margin:.15rem 0 0!important;color:var(--doux)}
+.ag__b a{color:var(--azur)}
+@media (max-width:560px){.ag{grid-template-columns:1fr;gap:.2rem}}
