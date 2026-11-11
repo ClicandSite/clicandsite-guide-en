@@ -194,3 +194,7 @@ img{max-width:100%}
 @media (max-width:560px){.credit{left:1.25rem;right:auto}.post__in{padding-bottom:3.5rem}}
 .regions{display:grid;gap:1.25rem;grid-template-columns:1fr}
 @media (min-width:860px){.regions{grid-template-columns:1fr 1fr}}
+.brand{display:inline-flex;align-items:center}
+.brand__logo{display:block;height:40px;width:auto}
+@media (max-width:420px){.brand__logo{height:32px}}
+.post--home .post__shade{background:linear-gradient(90deg,rgba(10,22,36,.62) 0%,rgba(10,22,36,.35) 45%,rgba(10,22,36,0) 75%),linear-gradient(0deg,rgba(10,22,36,.55) 0%,rgba(10,22,36,0) 55%)}
