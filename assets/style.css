@@ -198,3 +198,19 @@ img{max-width:100%}
 .brand__logo{display:block;height:40px;width:auto}
 @media (max-width:420px){.brand__logo{height:32px}}
 .post--home .post__shade{background:linear-gradient(90deg,rgba(10,22,36,.62) 0%,rgba(10,22,36,.35) 45%,rgba(10,22,36,0) 75%),linear-gradient(0deg,rgba(10,22,36,.55) 0%,rgba(10,22,36,0) 55%)}
+/* En-tête sans bande : transparent sur les photos, clair ailleurs */
+.top{background:transparent}
+.hero-page .top{position:absolute;top:0;left:0;right:0;z-index:5;background:linear-gradient(180deg,rgba(8,22,36,.5) 0%,rgba(8,22,36,0) 100%)}
+.hero-page .top__nav a{color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.plain-page .top__nav a{color:var(--encre)}
+.plain-page .top__nav a:hover{color:var(--azur)}
+.hero-page .crumbs ol{padding-top:1.1rem}
+.hero-page main > .post:first-child{margin-top:0}
+.hero-page .post .stamp{top:calc(64px + 1rem)}
+.hero-page .post .postmark{top:calc(64px + 2.4rem)}
+.hero-page .post__in{padding-top:calc(64px + 8.5rem)}
+@media (max-width:640px){
+  .hero-page .post .stamp{top:122px}
+  .hero-page .post .postmark{top:136px}
+  .hero-page .post__in{padding-top:250px}
+}
