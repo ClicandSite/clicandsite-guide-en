@@ -236,3 +236,6 @@ img{max-width:100%}
 .post__cta{margin:1.4rem 0 0}
 @media (max-width:560px){.act__btns .bk{width:100%}.prose .book{padding:1.3rem 1rem 1rem;margin-left:-.25rem;margin-right:-.25rem}}
 @media (prefers-reduced-motion:reduce){.bk{transition:none}.bk:hover{transform:none}}
+.book .act--eps{background:#fbf6ea;border-left:4px solid var(--ocre)}
+.bk--eps{background:#15130f;color:#e8c977;box-shadow:0 3px 0 #000}
+.bk--eps:hover{background:#2a251c;transform:translateY(-1px);box-shadow:0 4px 0 #000}
