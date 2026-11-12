@@ -1,5 +1,7 @@
-/* Statistiques Clic&Site : vues et clics partenaires, sans cookie ni stockage, sans IP. */
+/* Statistiques Clic&Site : vues et clics partenaires, sans cookie ni IP.
+   Ouvrir le site avec #nostats exclut cet appareil (mémorisé dans ce navigateur) ; #stats le réactive. */
 (function(){
+  try{if(location.hash==='#nostats')localStorage.setItem('cs_nostats','1');else if(location.hash==='#stats')localStorage.removeItem('cs_nostats');if(localStorage.getItem('cs_nostats')==='1')return;}catch(e){}
   var ua=navigator.userAgent||'';
   if(navigator.webdriver||/bot|crawl|spider|slurp|lighthouse|headless|preview/i.test(ua))return;
   var U='https://avcynjwcyygygkjuxsdt.supabase.co/rest/v1/guide_events',K='sb_publishable_fdSM-pnUtZRKX7K6nOf5Ag_i1TQgqLO';
