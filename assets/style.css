@@ -33,7 +33,8 @@ img{max-width:100%}
 .top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:64px;flex-wrap:wrap}
 .brand{font:400 1.6rem/1 var(--serif);color:#fff;text-decoration:none;letter-spacing:-.01em}
 .brand__amp{color:var(--ocre);margin:0 .04em}
-.top__nav{display:flex;gap:1.25rem;font-weight:600;font-size:.95rem}
+.top__nav{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;font-weight:600;font-size:.95rem}
+.top__nav a{white-space:nowrap}
 .top__nav a{color:#dbe7f0;text-decoration:none}
 .top__nav a:hover{color:#fff;text-decoration:underline}
 
@@ -151,7 +152,7 @@ img{max-width:100%}
 }
 @media (max-width:560px){
   body{font-size:1rem}
-  .top__nav{gap:.9rem;font-size:.9rem}
+  .top__nav{gap:.55rem 1.1rem;font-size:.9rem}
   .hero{padding-top:2.25rem}
   .post__in{padding-top:8rem}
   .post .postmark{top:2.2rem}
@@ -248,3 +249,22 @@ img{max-width:100%}
 .ag__b p{margin:.15rem 0 0!important;color:var(--doux)}
 .ag__b a{color:var(--azur)}
 @media (max-width:560px){.ag{grid-template-columns:1fr;gap:.2rem}}
+
+/* Sélecteur de langue FR / EN */
+.langs{display:flex;align-items:center;gap:2px;border:1.5px solid rgba(255,255,255,.75);border-radius:999px;padding:2px;font-weight:700;font-size:.78rem;letter-spacing:.06em;color:#fff}
+.langs a,.langs span{display:block;padding:.3rem .65rem;border-radius:999px;line-height:1;text-decoration:none;color:inherit}
+.langs span{background:#fff;color:var(--encre)}
+.langs a:hover{background:rgba(255,255,255,.18)}
+.hero-page .langs{box-shadow:0 1px 8px rgba(0,0,0,.25)}
+.plain-page .langs{border-color:var(--encre);color:var(--encre)}
+.plain-page .langs span{background:var(--encre);color:#fff}
+.plain-page .langs a:hover{background:rgba(19,50,75,.08)}
+@media (min-width:901px){.top__nav{margin-left:auto;margin-right:.75rem}}
+@media (max-width:900px){
+  .langs{order:1}
+  .top__nav{order:2;width:100%;padding-bottom:.6rem}
+}
+
+.byline{font-size:.8125rem;color:var(--doux);margin:.35rem auto 0}
+.byline a{color:var(--doux)}
+.maj{font-size:.8125rem;color:var(--doux);font-style:italic}
