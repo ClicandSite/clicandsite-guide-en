@@ -264,3 +264,6 @@ img{max-width:100%}
   .langs{order:1}
   .top__nav{order:2;width:100%;padding-bottom:.6rem}
 }
+
+.byline{font-size:.8125rem;color:var(--doux);margin:.35rem auto 0}
+.byline a{color:var(--doux)}
