@@ -1,13 +1,14 @@
 /* Statistiques Clic&Site : vues et clics partenaires, sans cookie ; l'IP sert seulement à déduire pays et ville, elle n'est jamais enregistrée.
    Ouvrir le site avec #nostats exclut ce navigateur sur les DEUX domaines (passe par l'autre domaine avec #nostats2) ; #stats le réactive. */
 (function(){
+  function toast(s){var m=document.createElement('div');m.textContent=s;m.style.cssText='position:fixed;left:12px;right:12px;bottom:12px;z-index:99999;background:#13304b;color:#fff;padding:14px 16px;border-radius:10px;font:600 15px/1.4 system-ui,sans-serif;text-align:center';var go=function(){document.body.appendChild(m);setTimeout(function(){m.remove()},5000)};document.body?go():document.addEventListener('DOMContentLoaded',go)}
+  /* Lien secret (nom du directeur de publication dans les mentions légales) : un toucher exclut / réintègre cet appareil, y compris dans l'appli ajoutée à l'écran d'accueil. */
+  document.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a.cs-secret');if(!a)return;ev.preventDefault();ev.stopPropagation();try{if(localStorage.getItem('cs_nostats')==='1'){localStorage.removeItem('cs_nostats');toast('This device is counted again in the statistics.')}else{localStorage.setItem('cs_nostats','1');toast('\u2713 This device is no longer counted in the statistics.')}}catch(e){}},true);
   try{
     var hs=location.hash,other=location.hostname.slice(-4)==='.com'?'https://clicandsite.fr/':'https://clicandsite.com/';
     if(hs==='#nostats'||hs==='#nostats2'){localStorage.setItem('cs_nostats','1');
       if(hs==='#nostats'){location.replace(other+'#nostats2');return;}
-      var m=document.createElement('div');m.textContent='\u2713 Cet appareil n\u2019est plus compt\u00e9 dans les statistiques (clicandsite.fr et .com).';
-      m.style.cssText='position:fixed;left:12px;right:12px;bottom:12px;z-index:99999;background:#13304b;color:#fff;padding:14px 16px;border-radius:10px;font:600 15px/1.4 system-ui,sans-serif;text-align:center';
-      document.addEventListener('DOMContentLoaded',function(){document.body.appendChild(m)});if(document.body)document.body.appendChild(m);
+      toast('\u2713 This device is no longer counted in the statistics.');
       history.replaceState(null,'',location.pathname);return;}
     if(hs==='#stats'){localStorage.removeItem('cs_nostats');if(!/stats2/.test(hs))location.replace(other+'#stats2');}
     if(hs==='#stats2')localStorage.removeItem('cs_nostats');
