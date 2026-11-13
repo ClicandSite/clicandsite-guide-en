@@ -1,7 +1,17 @@
 /* Statistiques Clic&Site : vues et clics partenaires, sans cookie ; l'IP sert seulement à déduire pays et ville, elle n'est jamais enregistrée.
-   Ouvrir le site avec #nostats exclut cet appareil (mémorisé dans ce navigateur) ; #stats le réactive. */
+   Ouvrir le site avec #nostats exclut ce navigateur sur les DEUX domaines (passe par l'autre domaine avec #nostats2) ; #stats le réactive. */
 (function(){
-  try{if(location.hash==='#nostats')localStorage.setItem('cs_nostats','1');else if(location.hash==='#stats')localStorage.removeItem('cs_nostats');if(localStorage.getItem('cs_nostats')==='1')return;}catch(e){}
+  try{
+    var hs=location.hash,other=location.hostname.slice(-4)==='.com'?'https://clicandsite.fr/':'https://clicandsite.com/';
+    if(hs==='#nostats'||hs==='#nostats2'){localStorage.setItem('cs_nostats','1');
+      if(hs==='#nostats'){location.replace(other+'#nostats2');return;}
+      var m=document.createElement('div');m.textContent='\u2713 Cet appareil n\u2019est plus compt\u00e9 dans les statistiques (clicandsite.fr et .com).';
+      m.style.cssText='position:fixed;left:12px;right:12px;bottom:12px;z-index:99999;background:#13304b;color:#fff;padding:14px 16px;border-radius:10px;font:600 15px/1.4 system-ui,sans-serif;text-align:center';
+      document.addEventListener('DOMContentLoaded',function(){document.body.appendChild(m)});if(document.body)document.body.appendChild(m);
+      history.replaceState(null,'',location.pathname);return;}
+    if(hs==='#stats'){localStorage.removeItem('cs_nostats');if(!/stats2/.test(hs))location.replace(other+'#stats2');}
+    if(hs==='#stats2')localStorage.removeItem('cs_nostats');
+    if(localStorage.getItem('cs_nostats')==='1')return;}catch(e){}
   var ua=navigator.userAgent||'';
   if(navigator.webdriver||/bot|crawl|spider|slurp|lighthouse|headless|preview|google-|inspectiontool|facebookexternalhit|bytespider|petal|yandex|baidu|semrush|ahrefs|compatible;/i.test(ua))return;
   var U='https://avcynjwcyygygkjuxsdt.supabase.co/functions/v1/collect';
