@@ -314,3 +314,10 @@ img{max-width:100%}
   body.has-bar .foot{padding-bottom:5rem}
 }
 @media (prefers-reduced-motion:reduce){.cta-bar,.cta-arr{transition:none}}
+
+/* À voir à proximité */
+.prose .near{list-style:none;padding:0;margin:.4rem 0 2rem;display:grid;gap:.5rem}
+.prose .near li{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.2rem 1rem;background:#fff;border:1px solid var(--trait);border-radius:8px;padding:.7rem 1rem}
+.prose .near a{font-weight:700;color:var(--encre);text-decoration:none}
+.prose .near a:hover{text-decoration:underline}
+.prose .near__d{font-size:.9rem;color:var(--doux)}
