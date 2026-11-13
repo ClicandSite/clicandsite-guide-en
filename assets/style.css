@@ -322,3 +322,5 @@ img{max-width:100%}
 .prose .near a:hover{text-decoration:underline}
 .prose .near__d{font-size:.9rem;color:var(--doux)}
 @media (min-width:901px) and (max-width:1440px){.top__nav{gap:.5rem .9rem;font-size:.9rem}}
+
+.see-pic{display:block;margin:.5rem 0 .8rem;max-width:460px}.see-pic img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:12px}h3 a{color:inherit;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
