@@ -1,4 +1,4 @@
-/* Barre « Voir les prix » sur mobile : visible après l'en-tête, masquée quand le bloc de réservation est à l'écran. */
+/* Barre « Mes billets » sur mobile : visible après l'en-tête, masquée quand le bloc de réservation est à l'écran. */
 (function(){
   var bar=document.getElementById('cta-bar');if(!bar)return;
   var hero=document.querySelector('header.post')||document.querySelector('main > :first-child');
