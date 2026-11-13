@@ -1,0 +1,40 @@
+name: IndexNow
+on:
+  push:
+    branches: [main]
+    paths: ['**.html', 'sitemap.xml']
+  workflow_dispatch:
+    inputs:
+      all:
+        description: 'Envoyer toutes les URL du sitemap'
+        type: boolean
+        default: true
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Attendre la mise en ligne
+        run: sleep 90
+      - name: Envoyer les URL à IndexNow (Bing, Yandex, Naver, Seznam, Yep)
+        run: |
+          HOST=clicandsite.com
+          KEY=3d5832b6cba7e6f5c1a2aedf1cca7b71
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || ! git rev-parse -q HEAD~1 >/dev/null; then
+            grep -o '<loc>[^<]*</loc>' sitemap.xml | sed 's/<[^>]*>//g' > urls.txt
+          else
+            git diff --name-only HEAD~1 HEAD -- '*.html' | grep -v '^admin/' | grep -v '^404' \
+              | sed -e 's#index\.html$##' -e "s#^#https://$HOST/#" > urls.txt
+          fi
+          [ -s urls.txt ] || { echo "Rien à envoyer"; exit 0; }
+          echo "$(wc -l < urls.txt) URL"
+          python3 - <<PY
+          import json
+          urls=[l.strip() for l in open('urls.txt') if l.strip()][:10000]
+          json.dump({"host":"$HOST","key":"$KEY","keyLocation":"https://$HOST/$KEY.txt","urlList":urls},open('body.json','w'))
+          PY
+          code=$(curl -s -o resp.txt -w '%{http_code}' -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' --data @body.json)
+          echo "HTTP $code"; cat resp.txt
+          case $code in 200|202) ;; *) exit 1;; esac
