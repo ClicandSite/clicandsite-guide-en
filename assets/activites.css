@@ -1,0 +1,15 @@
+.live{background:var(--blanc);color:var(--texte);border-radius:6px;padding:1.2rem 1.25rem;margin:0 0 1rem;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.live__t{margin:0 0 .3rem;color:var(--encre)}
+.live__s{margin:0 0 .6rem!important;font-size:.82rem;color:var(--doux)}
+.live__s--via{margin-top:1.1rem!important;font-weight:600;color:var(--encre);font-size:.95rem}
+.live__gyg{min-height:120px}
+.picks{list-style:none;padding:0!important;margin:0;display:grid;gap:.5rem}
+.picks li{margin:0!important}
+.pick{display:flex;flex-wrap:wrap;align-items:center;gap:.15rem .6rem;padding:.7rem .9rem;border:1px solid var(--trait);border-radius:6px;text-decoration:none;color:var(--texte)}
+.pick:hover{border-color:var(--azur);background:var(--ciel)}
+.pick__t{flex:1 1 70%;font-weight:600;color:var(--encre)}
+.pick__d{order:3;flex-basis:100%;font-size:.85rem;color:var(--doux)}
+.pick .cta-arr{width:1em;height:1em;color:var(--azur)}
+.live__all{margin:.8rem 0 0!important;font-size:.9rem}
+.live__all a{color:var(--azur);font-weight:600}
+.live__all .cta-arr{width:.9em;height:.9em;vertical-align:-.1em;margin-left:.25em}
