@@ -1,0 +1,21 @@
+name: Contrôle SEO et qualité
+# À chaque publication sur main, chaque nuit et à la demande.
+# Si une ERREUR est trouvée, le contrôle échoue et GitHub envoie un e-mail.
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 5 * * *'
+  workflow_dispatch:
+jobs:
+  controle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Contrôle des pages
+        run: python3 _outils/controle.py .
