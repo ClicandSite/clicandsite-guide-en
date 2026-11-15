@@ -10,7 +10,10 @@
   if(ok){arm();return}
   w.style.display="none";
   var b=document.createElement("div");b.className="gyg-ok";
-  var sk='<div class="gyg-ok__sk" aria-hidden="true"><i></i><i></i><i></i><i></i></div>';
+  var im=document.querySelector('.post__img'),src='';
+  if(im){src=((im.getAttribute('srcset')||'').split(',')[0]||'').trim().split(' ')[0]||im.getAttribute('src')||''}
+  var bg=src?' style="background-image:url(\''+src.replace(/'/g,"%27")+'\')"':'';
+  var sk='<div class="gyg-ok__sk'+(src?' gyg-ok__sk--ph':'')+'" aria-hidden="true"><i'+bg+'></i><i'+bg+'></i><i'+bg+'></i></div>';
   b.innerHTML=sk+(en
     ?'<div class="gyg-ok__c"><button type="button" class="gyg-ok__b">See available activities</button><p class="gyg-ok__n">Live prices from GetYourGuide (sets a cookie). <a href="/legal-notice/#cookies">Details</a></p></div>'
     :'<div class="gyg-ok__c"><button type="button" class="gyg-ok__b">Voir les activités disponibles</button><p class="gyg-ok__n">Prix en direct de GetYourGuide (dépose un cookie). <a href="/mentions-legales/#cookies">Détails</a></p></div>');
