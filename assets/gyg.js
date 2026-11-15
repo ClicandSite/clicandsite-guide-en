@@ -10,9 +10,10 @@
   if(ok){arm();return}
   w.style.display="none";
   var b=document.createElement("div");b.className="gyg-ok";
-  b.innerHTML=en
-    ?'<p>This live list of activities is provided by GetYourGuide, which stores a session identifier in your browser. It only loads with your consent. <a href="/legal-notice/#cookies">Learn more</a></p><button type="button" class="gyg-ok__b">Accept and show activities</button>'
-    :'<p>Cette liste d’activités en direct est fournie par GetYourGuide, qui enregistre un identifiant de session dans votre navigateur. Elle ne se charge qu’avec votre accord. <a href="/mentions-legales/#cookies">En savoir plus</a></p><button type="button" class="gyg-ok__b">Accepter et afficher les activités</button>';
+  var sk='<div class="gyg-ok__sk" aria-hidden="true"><i></i><i></i><i></i><i></i></div>';
+  b.innerHTML=sk+(en
+    ?'<div class="gyg-ok__c"><button type="button" class="gyg-ok__b">See available activities</button><p class="gyg-ok__n">Live prices from GetYourGuide (sets a cookie). <a href="/legal-notice/#cookies">Details</a></p></div>'
+    :'<div class="gyg-ok__c"><button type="button" class="gyg-ok__b">Voir les activités disponibles</button><p class="gyg-ok__n">Prix en direct de GetYourGuide (dépose un cookie). <a href="/mentions-legales/#cookies">Détails</a></p></div>');
   d.appendChild(b);
   b.querySelector("button").addEventListener("click",function(){try{localStorage.setItem("cs_gyg","1")}catch(e){}b.remove();w.style.display="";l()});
 })();
