@@ -13,3 +13,8 @@
 .live__all{margin:.8rem 0 0!important;font-size:.9rem}
 .live__all a{color:var(--azur);font-weight:600}
 .live__all .cta-arr{width:.9em;height:.9em;vertical-align:-.1em;margin-left:.25em}
+.gyg-ok{border:1px dashed var(--trait);border-radius:6px;padding:.9rem 1rem;background:var(--ciel)}
+.gyg-ok p{margin:0 0 .6rem!important;font-size:.88rem;color:var(--doux)}
+.gyg-ok__b{font:600 .92rem/1 var(--sans);background:var(--encre);color:#fff;border:0;border-radius:4px;padding:.65rem 1rem;cursor:pointer}
+.gyg-ok__b:hover{background:var(--azur)}
+.cs-revoke{font:600 .9rem/1 var(--sans);background:none;border:1px solid var(--encre);color:var(--encre);border-radius:4px;padding:.55rem .9rem;cursor:pointer}
