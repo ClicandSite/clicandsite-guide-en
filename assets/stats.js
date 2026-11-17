@@ -31,3 +31,5 @@
     if(p)send({kind:'click',partner:p});
   },true);
 })();
+/* Changement de langue : remplace la page dans l'historique, pour que « Retour » ne ramène pas dans l'autre langue. */
+(function(){var a=document.querySelector('.langs a[hreflang]');if(!a)return;a.addEventListener('click',function(e){if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();location.replace(a.href);});})();
