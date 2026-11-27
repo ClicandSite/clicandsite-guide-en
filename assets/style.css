@@ -328,3 +328,27 @@ img{max-width:100%}
 .aff-note{font-size:.72rem;opacity:.7;margin-top:.4rem}.foot__aff{font-size:.72rem;opacity:.7}
 
 .tbl{overflow-x:auto;margin:1rem 0 1.5rem}.tbl table{width:100%;border-collapse:collapse;font-size:.95rem}.tbl th,.tbl td{text-align:left;padding:.55rem .6rem;border-bottom:1px solid rgba(19,50,75,.12);vertical-align:top}.tbl thead th{background:var(--encre);color:#fff;font-weight:600}.tbl tbody tr:nth-child(even){background:rgba(224,162,67,.08)}.tbl__s{display:block;font-size:.8rem;opacity:.7}
+/* Recherche */
+.sbtn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin-left:auto;padding:0;background:transparent;border:0;border-radius:50%;cursor:pointer;color:#fff}
+.sbtn svg{width:22px;height:22px}
+.hero-page .sbtn{filter:drop-shadow(0 1px 6px rgba(0,0,0,.45))}
+.plain-page .sbtn{color:var(--encre)}
+.sbtn:hover,.sbtn:focus-visible{background:rgba(255,255,255,.15)}
+.plain-page .sbtn:hover,.plain-page .sbtn:focus-visible{background:rgba(19,50,75,.08)}
+@media (min-width:1400px){.top__nav{margin-right:0}.sbtn{margin-left:.5rem;margin-right:.25rem}}
+@media (max-width:1399px){.sbtn{order:1;margin:0 -.5rem 0 0}}
+.spanel{position:fixed;inset:0;z-index:1000;background:rgba(8,22,36,.55);padding:clamp(.75rem,6vh,5rem) 1rem 1rem}
+.spanel[hidden]{display:none}
+.spanel__in{max-width:640px;margin:0 auto;display:flex;align-items:center;background:#fff;border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.3);padding:.35rem .5rem .35rem 1rem}
+.sinput{flex:1;min-width:0;border:0;outline:0;font:inherit;font-size:1.1rem;padding:.75rem 0;color:var(--encre);background:transparent}
+.sclose{width:44px;height:44px;border:0;background:transparent;font-size:1.8rem;line-height:1;color:var(--encre);cursor:pointer;border-radius:50%}
+.sclose:hover{background:rgba(19,50,75,.08)}
+.sres{list-style:none;max-width:640px;margin:.5rem auto 0;padding:0;background:#fff;border-radius:14px;overflow:auto;max-height:65vh;box-shadow:0 18px 50px rgba(0,0,0,.25)}
+.sres:empty{display:none}
+.sres a{display:flex;justify-content:space-between;gap:1rem;padding:.8rem 1rem;color:var(--encre);text-decoration:none;border-top:1px solid rgba(19,50,75,.08)}
+.sres li:first-child a{border-top:0}
+.sres a:hover,.sres a.on{background:#eef4f8}
+.sres__t{font-weight:600}
+.sres__r{color:#5b6f80;font-size:.9rem;white-space:nowrap}
+.sres__none{padding:.9rem 1rem;color:#5b6f80}
+html.s-open{overflow:hidden}

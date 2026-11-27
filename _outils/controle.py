@@ -271,6 +271,21 @@ if LEGAL in pages and 'cs-revoke' not in pages[LEGAL]: err('Mentions légales', 
 if not os.path.isfile(os.path.join(ROOT, 'assets', 'gyg.js')): err('Consentement', 'assets/gyg.js absent')
 # CGV : le site ne vend rien (réservations chez GetYourGuide / Viator) -> pas de CGV exigées.
 
+
+# ---------- recherche (assets/search.js + assets/search.json à jour)
+try:
+    _idx = {x['u'] for x in json.load(open(os.path.join(ROOT, 'assets', 'search.json'), encoding='utf-8'))}
+except Exception as e:
+    _idx = None; err('Recherche', f'assets/search.json illisible ou absent ({e}) : lancer _outils/search_index.py')
+for rel, s in pages.items():
+    if 'assets/stats.js' in s and 'assets/search.js' not in s: err('Recherche', f'{rel or "(accueil)"} : script de recherche absent (ajouter <script src="/assets/search.js?v=1" defer></script> avant stats.js)')
+    if _idx is not None and rel and '/' + rel + '/' not in _idx and 'noindex' not in s[:3000]: err('Recherche', f'{rel} : page absente de assets/search.json — relancer _outils/search_index.py')
+for rel, s in pages.items():
+    _m = re.search(r'<main.*?</main>', s, re.S)
+    if _m:
+        _h = collections.Counter(html.unescape(h) for h in re.findall(r'<a\b[^>]*href="(https://www\.(?:viator|getyourguide)[^"]*)"', _m.group(0)))
+        _d = [h for h, c in _h.items() if c > 1]
+        if _d: err('Liens partenaires', f'{rel or "(accueil)"} : {len(_d)} lien(s) partenaire(s) en double (lancer python3 _outils/dedup.py . -w)')
 # ---------- rapport
 print(f'Contrôle Clic&Site ({LANG}) : {len(pages)} pages\n')
 ne = sum(len(v) for v in errors.values()); nw = sum(len(v) for v in warnings.values())
