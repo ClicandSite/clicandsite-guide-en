@@ -352,3 +352,4 @@ img{max-width:100%}
 .sres__r{color:#5b6f80;font-size:.9rem;white-space:nowrap}
 .sres__none{padding:.9rem 1rem;color:#5b6f80}
 html.s-open{overflow:hidden}
+.sinput::-webkit-search-cancel-button{-webkit-appearance:none;display:none}
