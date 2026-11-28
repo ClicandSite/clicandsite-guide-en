@@ -353,3 +353,8 @@ img{max-width:100%}
 .sres__none{padding:.9rem 1rem;color:#5b6f80}
 html.s-open{overflow:hidden}
 .sinput::-webkit-search-cancel-button{-webkit-appearance:none;display:none}
+/* Mis à jour récemment (accueil) */
+.maj__l{list-style:none;margin:0 0 2rem;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.25rem 2rem}
+.maj__l li{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid rgba(19,50,75,.12)}
+.maj__l a{color:var(--encre);font-weight:600;text-decoration:none}.maj__l a:hover{text-decoration:underline}
+.maj__d{color:#5b6f80;font-size:.9rem;white-space:nowrap}
