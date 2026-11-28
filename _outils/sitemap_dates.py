@@ -10,7 +10,7 @@ def fix(m):
     rel = url.replace(dom, '').strip('/')
     f = os.path.join(rel, 'index.html') if rel else 'index.html'
     # les commits marqués [sans-date] (changement technique sans contenu, ex. version CSS) ne comptent pas
-    d = subprocess.run(['git', '-C', root, 'log', '-1', '--format=%cs', '--invert-grep', '--grep=[sans-date]', '--grep=Menu burger jusqu', '--fixed-strings', '--', f], capture_output=True, text=True).stdout.strip()
+    d = subprocess.run(['git', '-C', root, 'log', '-1', '--format=%cs', '--invert-grep', '--grep=[sans-date]', '--grep=Menu burger jusqu', '--grep=Accueil : bloc « Mis à jour récemment »', '--fixed-strings', '--', f], capture_output=True, text=True).stdout.strip()
     if d and d != old: n += 1; return f'<loc>{url}</loc><lastmod>{d}</lastmod>'
     return m.group(0)
 s = re.sub(r'<loc>([^<]+)</loc><lastmod>([^<]+)</lastmod>', fix, s)
